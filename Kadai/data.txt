@@ -1,0 +1,6 @@
+yoshiko 90
+taro 80
+jiro 70
+hanako 60
+mitsuru 100
+mizuki 20
