@@ -33,7 +33,7 @@ int main(){
 	for(i=0;i<Num_of_student;i++){
 		if(student[i].score>max){
 			max = student[i].score;
-			strcpy(student[i].name,max_name);
+			strcpy(max_name, student[i].name);
 		}
 	}//最高点を出すよ 誰の点数かも記録するよ
 	printf("%s\n",max_name);
@@ -50,7 +50,7 @@ int main(){
 
 	fprintf(fp,"平均点以下の人：\n");
 	for(i=0;i<Num_of_student;i++){
-		if(student[i].score < average){
+		if(student[i].score <= average){
 			fprintf(fp,"  %d 点 (%s)\n",student[i].score,student[i].name);
 		}
 	}
