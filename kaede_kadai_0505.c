@@ -9,10 +9,10 @@ typedef struct data{
     int score;        /* 学生の点数 */
 } StudentData;
 
-void         read_from_data(StudentData[]);
-float        calculate_average(StudentData[]);
-StudentData    find_max_studentdata(StudentData[]);
-void        write_to_result(StudentData[], float, StudentData);
+void            read_from_data(StudentData[]);
+float           calculate_average(StudentData[]);
+StudentData     find_max_studentdata(StudentData[]);
+void            write_to_result(StudentData[], float, StudentData);
 
 int main( void )
 {
@@ -44,7 +44,6 @@ void read_from_data( StudentData students[] )
     /* data.txtより学生の名前と点数を取得する */
     for(i=0; i<NUM_OF_STUDENT; i++){
         fscanf(fp,"%s %d", students[i].name, &(students[i].score));
-        // printf("%s: \t%d\n", students[i].name, students[i].score);
     }
 
     fclose(fp);
@@ -77,8 +76,6 @@ StudentData find_max_studentdata( StudentData students[] )
     }
 
     return max_student;
-    // printf("%s\n", max_student.name);
-    // printf("%d\n", max_student.score);
 }
 
 void write_to_result( StudentData students[], float score_average, StudentData max_studentdata )
@@ -86,11 +83,13 @@ void write_to_result( StudentData students[], float score_average, StudentData m
     FILE *fp;
     int i;
 
+    /* result.txtを開く(書込みモード) */
     if((fp = fopen("result.txt","w")) == NULL){
         printf("file open error result.txt\n");
         exit(1);
     }
 
+    /* result.txtに情報を書き込む */
     fprintf(fp,"平均点：%.2f 点\n", score_average);
     fprintf(fp,"最高点：%3d 点（%s）\n", max_studentdata.score, max_studentdata.name);
 
